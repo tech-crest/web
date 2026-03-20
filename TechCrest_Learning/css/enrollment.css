@@ -1,0 +1,572 @@
+/* ============================================
+   TechCrest Learning — Enrollment Modal Styles
+   enrollment.css
+   ============================================ */
+
+/* ---------- Modal Overlay ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Backdrop blur layer */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 9, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+
+/* ---------- Modal Box ---------- */
+.modal-box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 80px rgba(10,132,255,0.12);
+  overflow: hidden;
+
+  /* Entry animation */
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Top accent line */
+.modal-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-primary);
+  z-index: 2;
+}
+
+/* ---------- Modal Header ---------- */
+.modal-header {
+  padding: var(--space-xl) var(--space-xl) var(--space-md);
+  position: relative;
+}
+
+.modal-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Course icon in modal */
+.modal-course-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--primary-glow);
+  border: 1px solid var(--border-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.modal-header-text {
+  flex: 1;
+}
+
+.modal-header-text .modal-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.modal-header-text h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* Close button */
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+  line-height: 1;
+  font-family: var(--font-body);
+}
+
+.modal-close:hover {
+  background: rgba(255, 80, 80, 0.12);
+  border-color: rgba(255, 80, 80, 0.3);
+  color: #ff5050;
+}
+
+/* Modal description */
+.modal-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---------- Modal Body (Form) ---------- */
+.modal-body {
+  padding: var(--space-md) var(--space-xl) var(--space-xl);
+}
+
+/* Step indicator */
+.modal-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.modal-step-dot {
+  width: 28px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+  transition: var(--transition-smooth);
+}
+
+.modal-step-dot.active {
+  background: var(--primary);
+  width: 40px;
+}
+
+.modal-step-dot.done {
+  background: var(--secondary);
+}
+
+/* Enrollment Form */
+.enrollment-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Override form-group for modal */
+.enrollment-form .form-group label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.enrollment-form .form-group label .lbl-icon {
+  font-size: 0.9rem;
+}
+
+.enrollment-form .form-group input {
+  padding: 0.82rem 1rem;
+  font-size: 0.92rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  width: 100%;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.enrollment-form .form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.enrollment-form .form-group input:focus {
+  border-color: var(--primary);
+  background: rgba(10,132,255,0.06);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Input validation states */
+.enrollment-form .form-group input.input-error {
+  border-color: #ff4d4d;
+  background: rgba(255,77,77,0.06);
+}
+
+.enrollment-form .form-group input.input-success {
+  border-color: var(--secondary);
+  background: rgba(0,200,150,0.06);
+}
+
+/* Field error message */
+.field-error {
+  font-size: 0.75rem;
+  color: #ff6b6b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: -4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: var(--transition-fast);
+}
+
+.field-error.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Course display (read-only, auto-filled) */
+.course-display-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.82rem 1rem;
+  background: rgba(10,132,255,0.06);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.course-display-field .lock-icon {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-left: auto;
+}
+
+/* Privacy note */
+.privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(0,200,150,0.06);
+  border: 1px solid rgba(0,200,150,0.15);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.privacy-note .privacy-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--secondary);
+}
+
+/* Submit button (full width) */
+.btn-submit-enroll {
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  background: var(--grad-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+}
+
+.btn-submit-enroll::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: var(--transition-fast);
+}
+
+.btn-submit-enroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(10,132,255,0.4);
+  filter: brightness(1.07);
+}
+
+.btn-submit-enroll:hover::after {
+  background: rgba(255,255,255,0.08);
+}
+
+.btn-submit-enroll:active {
+  transform: translateY(0);
+}
+
+/* Loading spinner on submit */
+.btn-submit-enroll.loading {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.btn-submit-enroll .spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.btn-submit-enroll.loading .spinner {
+  display: block;
+}
+
+.btn-submit-enroll.loading .btn-text {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* WhatsApp icon on button */
+.whatsapp-icon {
+  font-size: 1.1rem;
+}
+
+/* ---------- Success Screen ---------- */
+.modal-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl);
+  gap: var(--space-lg);
+  min-height: 320px;
+}
+
+.modal-success.visible {
+  display: flex;
+}
+
+/* Success checkmark animation */
+.success-checkmark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0,200,150,0.12);
+  border: 2px solid var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes pop-in {
+  0%   { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.success-message {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 340px;
+}
+
+.success-message strong {
+  color: var(--secondary);
+}
+
+/* Redirect countdown */
+.redirect-countdown {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.countdown-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary-glow);
+  border: 1px solid var(--border-bright);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: var(--font-display);
+}
+
+/* Manual redirect button */
+.btn-whatsapp-manual {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.6rem;
+  background: #25D366;
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-whatsapp-manual:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+}
+
+/* ---------- Enrollment Section on Course Pages ---------- */
+.enroll-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-md));
+}
+
+.enroll-section .enroll-price {
+  margin-bottom: var(--space-lg);
+}
+
+.enroll-price .price-tag {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  display: block;
+}
+
+.enroll-price .price-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.enroll-btn-main {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  background: var(--grad-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.02em;
+}
+
+.enroll-btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(10,132,255,0.4);
+  filter: brightness(1.07);
+}
+
+/* Includes list */
+.enroll-includes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.enroll-includes h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.include-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.include-item .include-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+/* ---------- Body lock when modal open ---------- */
+body.modal-open {
+  overflow: hidden;
+}

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all courses at TechCrest Learning — Embedded Systems, IoT, PCB Design, DSA, and MERN Stack. Enroll today." />
+  <title>All Courses — TechCrest Learning</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/enrollment.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── Courses page specific ── */
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.45rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      font-family: var(--font-body);
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-bright);
+      background: var(--bg-elevated);
+    }
+
+    .filter-btn.active {
+      background: var(--primary-glow);
+      border-color: var(--border-bright);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Course count label */
+    .courses-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-xl);
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .courses-count {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .courses-count strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Sort dropdown */
+    .sort-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.45rem 1rem;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .sort-select:focus {
+      border-color: var(--border-bright);
+    }
+
+    .sort-select option {
+      background: var(--bg-card);
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: var(--space-4xl) var(--space-xl);
+      display: none;
+    }
+
+    .no-results.visible {
+      display: block;
+    }
+
+    .no-results .nr-icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .no-results h3 {
+      margin-bottom: var(--space-sm);
+      color: var(--text-secondary);
+    }
+
+    .no-results p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Full-width course card (list view variant) */
+    .course-card-full {
+      background: var(--grad-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      cursor: pointer;
+    }
+
+    .course-card-full:hover {
+      border-color: var(--border-bright);
+      box-shadow: var(--shadow-blue);
+      transform: translateY(-3px);
+    }
+
+    .course-card-full .course-card-banner {
+      height: 100%;
+      min-height: 180px;
+      border-radius: 0;
+    }
+
+    .course-card-full .course-card-body {
+      padding: var(--space-xl);
+    }
+
+    .course-card-full .course-card-footer {
+      margin-top: var(--space-md);
+    }
+
+    @media (max-width: 700px) {
+      .course-card-full {
+        grid-template-columns: 1fr;
+      }
+      .course-card-full .course-card-banner {
+        height: 140px;
+      }
+    }
+
+    /* View toggle buttons */
+    .view-toggle {
+      display: flex;
+      gap: 4px;
+    }
+
+    .view-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      font-size: 0.9rem;
+    }
+
+    .view-btn:hover,
+    .view-btn.active {
+      border-color: var(--border-bright);
+      color: var(--primary);
+      background: var(--primary-glow);
+    }
+
+    /* Courses list layout */
+    .courses-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .comparison-table th {
+      text-align: left;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table td {
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:hover td {
+      background: var(--bg-elevated);
+    }
+
+    .comparison-table .course-name-cell {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comparison-table .course-icon-sm {
+      font-size: 1.2rem;
+    }
+
+    /* Sticky section label */
+    .section-sticky-label {
+      position: sticky;
+      top: var(--nav-height);
+      background: rgba(6,13,26,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-sm) 0;
+      z-index: 10;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-sticky-label .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ssl-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================
+     NAVBAR
+     ======================================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">TechCrest<span>Learning</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="courses.html" class="active">
+          Courses
+          <svg class="chevron" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="courses/embedded.html"><span class="course-dot"></span>Embedded Systems</a></li>
+          <li><a href="courses/iot.html"><span class="course-dot"></span>Internet of Things</a></li>
+          <li><a href="courses/pcb.html"><span class="course-dot"></span>PCB Design</a></li>
+          <li><a href="courses/dsa.html"><span class="course-dot"></span>DSA</a></li>
+          <li><a href="courses/mernstack.html"><span class="course-dot"></span>MERN Stack</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="courses.html" class="nav-cta">Explore Courses</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="about.html">🏢 About</a></li>
+    <li>
+      <a href="courses.html" class="mobile-submenu-toggle active">
+        📚 Courses
+        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round"
+             style="margin-left:auto">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="courses/embedded.html">🔌 Embedded Systems</a></li>
+        <li><a href="courses/iot.html">📡 Internet of Things</a></li>
+        <li><a href="courses/pcb.html">🔧 PCB Design</a></li>
+        <li><a href="courses/dsa.html">🧠 DSA</a></li>
+        <li><a href="courses/mernstack.html">💻 MERN Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">📞 Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="courses.html" class="btn btn-gradient btn-lg">Explore All Courses →</a>
+  </div>
+</div>
+
+
+<!-- ========================================
+     PAGE HERO
+     ======================================== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">✦ All Courses</span>
+    <h1>Find Your <span class="text-gradient">Perfect Track</span></h1>
+    <p>Five industry-focused courses covering hardware, electronics, algorithms,
+       and full-stack development. All taught by working professionals.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Courses</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     COURSES SECTION
+     ======================================== -->
+<section class="section" style="padding-top: var(--space-2xl);">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">🗂 All Courses</button>
+      <button class="filter-btn" data-filter="hardware">🔩 Hardware</button>
+      <button class="filter-btn" data-filter="software">💻 Software</button>
+      <button class="filter-btn" data-filter="beginner">🟢 Beginner Friendly</button>
+      <button class="filter-btn" data-filter="advanced">🔴 Advanced</button>
+    </div>
+
+    <!-- Meta row: count + view toggle -->
+    <div class="courses-meta">
+      <p class="courses-count">
+        Showing <strong id="courseCount">5</strong> courses
+      </p>
+      <div style="display:flex; align-items:center; gap: var(--space-md);">
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Sort: Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="duration">Duration</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridViewBtn" title="Grid view">⊞</button>
+          <button class="view-btn" id="listViewBtn" title="List view">☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <div class="courses-grid" id="coursesGrid">
+
+      <!-- Embedded Systems -->
+      <div class="course-card reveal reveal-delay-1"
+           data-category="hardware beginner advanced"
+           data-price="8999" data-duration="12"
+           data-href="courses/embedded.html">
+        <div class="course-card-banner banner-embedded">
+          <span class="banner-icon">🔌</span>
+          <div class="course-card-badge">
+            <span class="badge badge-blue">Hardware</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Embedded Systems</h3>
+          <p class="course-card-desc">Master microcontrollers, real-time OS, C programming, and hardware-software integration for embedded applications.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 12 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 120+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">C Programming</span>
+            <span class="course-tag">Arduino</span>
+            <span class="course-tag">STM32</span>
+            <span class="course-tag">RTOS</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹8,999</span>
+            </div>
+            <button class="btn-enroll" data-course="embedded">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- IoT -->
+      <div class="course-card reveal reveal-delay-2"
+           data-category="hardware beginner"
+           data-price="7999" data-duration="10"
+           data-href="courses/iot.html">
+        <div class="course-card-banner banner-iot">
+          <span class="banner-icon">📡</span>
+          <div class="course-card-badge">
+            <span class="badge badge-teal">Connectivity</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Internet of Things (IoT)</h3>
+          <p class="course-card-desc">Build connected devices using sensors, cloud platforms, MQTT, and real-time dashboards for smart applications.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 10 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Mid</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 95+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">ESP32</span>
+            <span class="course-tag">MQTT</span>
+            <span class="course-tag">AWS IoT</span>
+            <span class="course-tag">Node-RED</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹7,999</span>
+            </div>
+            <button class="btn-enroll" data-course="iot">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PCB Design -->
+      <div class="course-card reveal reveal-delay-3"
+           data-category="hardware beginner"
+           data-price="6999" data-duration="8"
+           data-href="courses/pcb.html">
+        <div class="course-card-banner banner-pcb">
+          <span class="banner-icon">🔧</span>
+          <div class="course-card-badge">
+            <span class="badge badge-orange">Electronics</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">PCB Design</h3>
+          <p class="course-card-desc">Design, simulate and fabricate professional printed circuit boards using industry-standard EDA tools from scratch.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 8 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Mid</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 80+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">KiCad</span>
+            <span class="course-tag">Altium</span>
+            <span class="course-tag">Schematic</span>
+            <span class="course-tag">Layout</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹6,999</span>
+            </div>
+            <button class="btn-enroll" data-course="pcb">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSA -->
+      <div class="course-card reveal reveal-delay-1"
+           data-category="software beginner advanced"
+           data-price="9999" data-duration="14"
+           data-href="courses/dsa.html">
+        <div class="course-card-banner banner-dsa">
+          <span class="banner-icon">🧠</span>
+          <div class="course-card-badge">
+            <span class="badge badge-blue">Programming</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Data Structures & Algorithms</h3>
+          <p class="course-card-desc">Crack coding interviews and build strong CS fundamentals with arrays, trees, graphs, dynamic programming and more.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 14 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 200+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">Arrays</span>
+            <span class="course-tag">Trees</span>
+            <span class="course-tag">Graphs</span>
+            <span class="course-tag">DP</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹9,999</span>
+            </div>
+            <button class="btn-enroll" data-course="dsa">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERN Stack -->
+      <div class="course-card reveal reveal-delay-2"
+           data-category="software beginner advanced"
+           data-price="11999" data-duration="16"
+           data-href="courses/mernstack.html">
+        <div class="course-card-banner banner-mern">
+          <span class="banner-icon">💻</span>
+          <div class="course-card-badge">
+            <span class="badge badge-teal">Web Dev</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">MERN Stack Development</h3>
+          <p class="course-card-desc">Build full-stack web applications with MongoDB, Express.js, React and Node.js. From zero to deployment-ready.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 16 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 180+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">React</span>
+            <span class="course-tag">Node.js</span>
+            <span class="course-tag">MongoDB</span>
+            <span class="course-tag">Express</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹11,999</span>
+            </div>
+            <button class="btn-enroll" data-course="mern">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /courses-grid -->
+
+    <!-- No Results -->
+    <div class="no-results" id="noResults">
+      <div class="nr-icon">🔍</div>
+      <h3>No courses match this filter</h3>
+      <p>Try selecting a different category above.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     COMPARISON TABLE
+     ======================================== -->
+<section class="section"
+  style="background:var(--bg-card);
+         border-top:1px solid var(--border);
+         padding-top: var(--space-3xl);">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ Compare Courses</span>
+      <h2>Side-by-Side <span class="text-gradient">Comparison</span></h2>
+      <p>Not sure which course to pick? Here's a quick comparison to help you decide.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto; border-radius: var(--radius-lg);
+         border: 1px solid var(--border);">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Duration</th>
+            <th>Level</th>
+            <th>Fee</th>
+            <th>Best For</th>
+            <th>Enroll</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="course-name-cell">
+                <span class="course-icon-sm">🔌</span>
+                Embedded Systems
+              </div>
+            </td>
+            <td>12 Weeks</td>
+            <td><span class="badge badge-blue">Beg–Adv</span></td>
+            <td>₹8,999</td>
+            <td>Hardware engineers, ECE students</td>
+            <td>
+              <button class="btn-enroll btn-sm" data-course="embedded">
+                Enroll →
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="course-name-cell">
+                <span class="course-icon-sm">📡</span>
+                Internet of Things
+              </div>
+            </td>
+            <td>10 Weeks</td>
+            <td><span class="badge badge-teal">Beg–Mid</span></td>
+            <td>₹7,999</td>
+            <td>Smart device enthusiasts</td>
+            <td>
+              <button class="btn-enroll btn-sm" data-course="iot">
+                Enroll →
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="course-name-cell">
+                <span class="course-icon-sm">🔧</span>
+                PCB Design
+              </div>
+            </td>
+            <td>8 Weeks</td>
+            <td><span class="badge badge-orange">Beg–Mid</span></td>
+            <td>₹6,999</td>
+            <td>Electronics designers, makers</td>
+            <td>
+              <button class="btn-enroll btn-sm" data-course="pcb">
+                Enroll →
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="course-name-cell">
+                <span class="course-icon-sm">🧠</span>
+                DSA
+              </div>
+            </td>
+            <td>14 Weeks</td>
+            <td><span class="badge badge-blue">Beg–Adv</span></td>
+            <td>₹9,999</td>
+            <td>Interview prep, CS students</td>
+            <td>
+              <button class="btn-enroll btn-sm" data-course="dsa">
+                Enroll →
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="course-name-cell">
+                <span class="course-icon-sm">💻</span>
+                MERN Stack
+              </div>
+            </td>
+            <td>16 Weeks</td>
+            <td><span class="badge badge-teal">Beg–Adv</span></td>
+            <td>₹11,999</td>
+            <td>Web developers, startup builders</td>
+            <td>
+              <button class="btn-enroll btn-sm" data-course="mern">
+                Enroll →
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     CTA BANNER
+     ======================================== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Not Sure Which Course to <span class="text-gradient">Choose?</span></h2>
+      <p>Talk to our team on WhatsApp and we'll help you pick the right track based on your background and goals.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/919897654321" target="_blank"
+           rel="noopener" class="btn btn-gradient btn-lg">
+          💬 Chat on WhatsApp
+        </a>
+        <a href="contact.html" class="btn btn-outline btn-lg">
+          Send us a Message
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">⚡ TechCrest Learning</span>
+        <p>Premium tech education for the next generation of engineers and developers. Learn. Build. Get Hired.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses/embedded.html">Embedded Systems</a></li>
+          <li><a href="courses/iot.html">Internet of Things</a></li>
+          <li><a href="courses/pcb.html">PCB Design</a></li>
+          <li><a href="courses/dsa.html">DSA</a></li>
+          <li><a href="courses/mernstack.html">MERN Stack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/919897654321">📱 WhatsApp Us</a></li>
+          <li><a href="contact.html">📧 Send a Message</a></li>
+          <li><a href="contact.html">📍 Find Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> TechCrest Learning. All rights reserved.</p>
+      <p>Built with ❤️ for aspiring engineers.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========================================
+     ENROLLMENT MODAL
+     ======================================== -->
+<div class="modal-overlay" id="enrollModal" role="dialog"
+     aria-modal="true" aria-labelledby="modalCourseName">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-top">
+        <div class="modal-course-icon" id="modalCourseIcon">🎓</div>
+        <div class="modal-header-text">
+          <span class="modal-eyebrow">Enroll Now</span>
+          <h3 id="modalCourseName">Course Name</h3>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      </div>
+      <p>Fill in your details below. We will connect with you on WhatsApp instantly.</p>
+    </div>
+    <div style="padding: 0 var(--space-xl);">
+      <div class="modal-steps">
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div id="formView" style="display:flex; flex-direction:column; gap:var(--space-lg);">
+        <form class="enrollment-form" id="enrollmentForm" novalidate>
+          <div class="form-group">
+            <label><span class="lbl-icon">📚</span> Course</label>
+            <div class="course-display-field" id="courseDisplayField">— auto filled —<span class="lock-icon">🔒</span></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollName"><span class="lbl-icon">👤</span> Full Name</label>
+            <input type="text" id="enrollName" name="name" placeholder="e.g. Ravi Kumar" autocomplete="name" />
+            <div class="field-error" id="nameError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollEmail"><span class="lbl-icon">📧</span> Email Address</label>
+            <input type="email" id="enrollEmail" name="email" placeholder="e.g. ravi@email.com" autocomplete="email" />
+            <div class="field-error" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollPhone"><span class="lbl-icon">📱</span> Phone Number</label>
+            <input type="tel" id="enrollPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" maxlength="10" />
+            <div class="field-error" id="phoneError"></div>
+          </div>
+          <div class="privacy-note">
+            <span class="privacy-icon">🔒</span>
+            <p>Your details are <strong>100% private</strong>. We only use them to contact you about your enrollment via WhatsApp.</p>
+          </div>
+          <button type="submit" class="btn-submit-enroll" id="submitEnrollBtn">
+            <div class="spinner"></div>
+            <span class="btn-text"><span class="whatsapp-icon">💬</span> Continue to WhatsApp</span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-success" id="successView">
+        <div class="success-checkmark">✅</div>
+        <div class="success-title">You're All Set!</div>
+        <p class="success-message">Hi <strong id="successStudentName">there</strong>! Your enrollment request for <strong id="successCourseName"></strong> is ready. Redirecting you to WhatsApp now...</p>
+        <div class="redirect-countdown">Opening WhatsApp in <span class="countdown-number" id="countdownNumber">3</span> seconds</div>
+        <a href="#" class="btn-whatsapp-manual" id="manualWhatsAppBtn" target="_blank" rel="noopener">💬 Open WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/enrollment.js"></script>
+<script>
+  /* ── Courses page filter + sort + view toggle ── */
+
+  const filterBtns  = document.querySelectorAll('.filter-btn');
+  const cards       = document.querySelectorAll('#coursesGrid .course-card');
+  const noResults   = document.getElementById('noResults');
+  const courseCount = document.getElementById('courseCount');
+  const sortSelect  = document.getElementById('sortSelect');
+  const gridViewBtn = document.getElementById('gridViewBtn');
+  const listViewBtn = document.getElementById('listViewBtn');
+  const grid        = document.getElementById('coursesGrid');
+
+  let activeFilter = 'all';
+
+  /* Filter */
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilter();
+    });
+  });
+
+  function applyFilter() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cats = card.dataset.category || '';
+      const show = activeFilter === 'all' || cats.includes(activeFilter);
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    courseCount.textContent = visible;
+    noResults.classList.toggle('visible', visible === 0);
+  }
+
+  /* Sort */
+  sortSelect.addEventListener('change', () => {
+    const val      = sortSelect.value;
+    const cardsArr = [...cards];
+
+    cardsArr.sort((a, b) => {
+      if (val === 'price-low')  return +a.dataset.price    - +b.dataset.price;
+      if (val === 'price-high') return +b.dataset.price    - +a.dataset.price;
+      if (val === 'duration')   return +a.dataset.duration - +b.dataset.duration;
+      return 0;
+    });
+
+    cardsArr.forEach(card => grid.appendChild(card));
+  });
+
+  /* View toggle */
+  gridViewBtn.addEventListener('click', () => {
+    gridViewBtn.classList.add('active');
+    listViewBtn.classList.remove('active');
+    grid.className = 'courses-grid';
+    cards.forEach(card => {
+      card.classList.remove('course-card-full');
+    });
+  });
+
+  listViewBtn.addEventListener('click', () => {
+    listViewBtn.classList.add('active');
+    gridViewBtn.classList.remove('active');
+    grid.className = 'courses-list';
+    cards.forEach(card => {
+      card.classList.add('course-card-full');
+    });
+  });
+
+  /* Card click → course page */
+  cards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      if (e.target.closest('.btn-enroll')) return;
+      if (card.dataset.href) window.location.href = card.dataset.href;
+    });
+  });
+</script>
+
+</body>
+</html>
