@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechCrest Learning — Premium tech education in Embedded Systems, IoT, PCB Design, DSA and MERN Stack. Learn from industry experts." />
+  <title>TechCrest Learning — Premium Tech Education</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/enrollment.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ========================================
+     NAVBAR
+     ======================================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">
+        TechCrest
+        <span>Learning</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="courses.html">
+          Courses
+          <svg class="chevron" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="courses/embedded.html"><span class="course-dot"></span>Embedded Systems</a></li>
+          <li><a href="courses/iot.html"><span class="course-dot"></span>Internet of Things</a></li>
+          <li><a href="courses/pcb.html"><span class="course-dot"></span>PCB Design</a></li>
+          <li><a href="courses/dsa.html"><span class="course-dot"></span>DSA</a></li>
+          <li><a href="courses/mernstack.html"><span class="course-dot"></span>MERN Stack</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Desktop CTA -->
+    <div class="nav-actions">
+      <a href="courses.html" class="nav-cta">Explore Courses</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="about.html">🏢 About</a></li>
+    <li>
+      <a href="courses.html" class="mobile-submenu-toggle">
+        📚 Courses
+        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round"
+             style="margin-left:auto">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="courses/embedded.html">🔌 Embedded Systems</a></li>
+        <li><a href="courses/iot.html">📡 Internet of Things</a></li>
+        <li><a href="courses/pcb.html">🔧 PCB Design</a></li>
+        <li><a href="courses/dsa.html">🧠 DSA</a></li>
+        <li><a href="courses/mernstack.html">💻 MERN Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">📞 Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="courses.html" class="btn btn-gradient btn-lg">Explore All Courses →</a>
+  </div>
+</div>
+
+
+<!-- ========================================
+     HERO SECTION
+     ======================================== -->
+<section class="hero">
+  <div class="container">
+
+    <!-- Left: Content -->
+    <div class="hero-content">
+
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Now Enrolling — Batch 2025
+      </div>
+
+      <h1 class="hero-heading">
+        <span class="line">Build Real</span>
+        <span class="line accent-line">Tech Skills</span>
+        <span class="line">That Matter</span>
+      </h1>
+
+      <p class="hero-description">
+        From Embedded Systems to MERN Stack — TechCrest Learning offers
+        industry-focused, hands-on courses designed to launch your tech career.
+      </p>
+
+      <div class="hero-cta">
+        <a href="courses.html" class="btn btn-gradient btn-lg">
+          Explore Courses
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="about.html" class="btn btn-outline btn-lg">Learn About Us</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-icon">🎓</span>
+          <div class="trust-text">
+            <strong>500+ Students</strong>
+            trained so far
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⭐</span>
+          <div class="trust-text">
+            <strong>4.9 / 5 Rating</strong>
+            from students
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🏆</span>
+          <div class="trust-text">
+            <strong>Industry Certified</strong>
+            curriculum
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Visual Card -->
+    <div class="hero-visual">
+
+      <!-- Floating mini card: top left -->
+      <div class="hero-card-mini card-top-left">
+        <span class="mini-icon">🚀</span>
+        <div class="mini-text">
+          <span class="mini-label">New batch</span>
+          <span class="mini-value">Starting Soon</span>
+        </div>
+      </div>
+
+      <!-- Main card -->
+      <div class="hero-card-main">
+        <div class="hero-card-header">
+          <div class="card-avatar">🎓</div>
+          <div class="card-meta">
+            <h4>Your Learning Path</h4>
+            <p>Track your progress</p>
+          </div>
+        </div>
+
+        <div class="card-progress-list">
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>Embedded Systems</span>
+              <span class="pct">78%</span>
+            </div>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" data-width="78"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>IoT Fundamentals</span>
+              <span class="pct">55%</span>
+            </div>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" data-width="55"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span>MERN Stack</span>
+              <span class="pct">32%</span>
+            </div>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" data-width="32"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-stats-row">
+          <div class="card-stat">
+            <div class="val">12</div>
+            <div class="lbl">Modules Done</div>
+          </div>
+          <div class="card-stat">
+            <div class="val">94%</div>
+            <div class="lbl">Avg Score</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating mini card: bottom right -->
+      <div class="hero-card-mini card-bottom-right">
+        <span class="mini-icon">✅</span>
+        <div class="mini-text">
+          <span class="mini-label">Certificate</span>
+          <span class="mini-value">On Completion</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     STATS BAR
+     ======================================== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-divider">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="500" data-suffix="+">500+</div>
+          <div class="stat-label">Students Trained</div>
+        </div>
+      </div>
+      <div class="stat-divider">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="5" data-suffix="">5</div>
+          <div class="stat-label">Expert Courses</div>
+        </div>
+      </div>
+      <div class="stat-divider">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="4.9" data-suffix="★">4.9★</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+      <div class="stat-divider">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="95" data-suffix="%">95%</div>
+          <div class="stat-label">Placement Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FEATURES SECTION
+     ======================================== -->
+<section class="section" id="features">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ Why TechCrest</span>
+      <h2>Learning That Goes <span class="text-gradient">Beyond Theory</span></h2>
+      <p>We combine real-world projects, expert mentors, and industry-relevant curriculum to give you an unbeatable learning experience.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🛠️</div>
+        <h3>Hands-On Projects</h3>
+        <p>Every course includes real-world projects you can showcase in your portfolio — no fluff, just practical skills employers want.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">👨‍🏫</div>
+        <h3>Industry Mentors</h3>
+        <p>Learn directly from engineers and developers with years of industry experience. Get mentored, not just lectured.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">📜</div>
+        <h3>Certified Curriculum</h3>
+        <p>Our courses follow industry standards. Earn certificates that are recognized and valued by top tech companies.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">💬</div>
+        <h3>Live Doubt Sessions</h3>
+        <p>Get your questions answered in live sessions. Our support doesn't stop after class — we are always available.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">📱</div>
+        <h3>Lifetime Access</h3>
+        <p>Access all course materials, updates, and resources for life. Learn at your own pace, revisit anytime.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">🤝</div>
+        <h3>Placement Support</h3>
+        <p>Resume reviews, mock interviews, and direct referrals to our hiring partners. We help you land the job.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     COURSES SECTION
+     ======================================== -->
+<section class="section" id="courses" style="padding-top:0">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ Our Courses</span>
+      <h2>Choose Your <span class="text-gradient">Learning Track</span></h2>
+      <p>Five specialized tracks covering hardware, electronics, algorithms, and full-stack web development.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="courses-grid">
+
+      <!-- Embedded Systems -->
+      <div class="course-card reveal reveal-delay-1" data-href="courses/embedded.html">
+        <div class="course-card-banner banner-embedded">
+          <span class="banner-icon">🔌</span>
+          <div class="course-card-badge">
+            <span class="badge badge-blue">Hardware</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Embedded Systems</h3>
+          <p class="course-card-desc">Master microcontrollers, real-time OS, C programming, and hardware-software integration for embedded applications.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 12 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 120+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">C Programming</span>
+            <span class="course-tag">Arduino</span>
+            <span class="course-tag">STM32</span>
+            <span class="course-tag">RTOS</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹8,999</span>
+            </div>
+            <button class="btn-enroll" data-course="embedded">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- IoT -->
+      <div class="course-card reveal reveal-delay-2" data-href="courses/iot.html">
+        <div class="course-card-banner banner-iot">
+          <span class="banner-icon">📡</span>
+          <div class="course-card-badge">
+            <span class="badge badge-teal">Connectivity</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Internet of Things (IoT)</h3>
+          <p class="course-card-desc">Build connected devices using sensors, cloud platforms, MQTT, and real-time dashboards for smart applications.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 10 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Mid</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 95+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">ESP32</span>
+            <span class="course-tag">MQTT</span>
+            <span class="course-tag">AWS IoT</span>
+            <span class="course-tag">Node-RED</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹7,999</span>
+            </div>
+            <button class="btn-enroll" data-course="iot">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PCB Design -->
+      <div class="course-card reveal reveal-delay-3" data-href="courses/pcb.html">
+        <div class="course-card-banner banner-pcb">
+          <span class="banner-icon">🔧</span>
+          <div class="course-card-badge">
+            <span class="badge badge-orange">Electronics</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">PCB Design</h3>
+          <p class="course-card-desc">Design, simulate and fabricate professional printed circuit boards using industry-standard EDA tools from scratch.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 8 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Mid</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 80+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">KiCad</span>
+            <span class="course-tag">Altium</span>
+            <span class="course-tag">Schematic</span>
+            <span class="course-tag">Layout</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹6,999</span>
+            </div>
+            <button class="btn-enroll" data-course="pcb">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSA -->
+      <div class="course-card reveal reveal-delay-1" data-href="courses/dsa.html">
+        <div class="course-card-banner banner-dsa">
+          <span class="banner-icon">🧠</span>
+          <div class="course-card-badge">
+            <span class="badge badge-blue">Programming</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">Data Structures & Algorithms</h3>
+          <p class="course-card-desc">Crack coding interviews and build strong CS fundamentals with arrays, trees, graphs, dynamic programming and more.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 14 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 200+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">Arrays</span>
+            <span class="course-tag">Trees</span>
+            <span class="course-tag">Graphs</span>
+            <span class="course-tag">DP</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹9,999</span>
+            </div>
+            <button class="btn-enroll" data-course="dsa">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERN Stack -->
+      <div class="course-card reveal reveal-delay-2" data-href="courses/mernstack.html">
+        <div class="course-card-banner banner-mern">
+          <span class="banner-icon">💻</span>
+          <div class="course-card-badge">
+            <span class="badge badge-teal">Web Dev</span>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">MERN Stack Development</h3>
+          <p class="course-card-desc">Build full-stack web applications with MongoDB, Express.js, React and Node.js. From zero to deployment-ready.</p>
+          <div class="course-card-meta">
+            <span class="meta-item"><span class="meta-icon">⏱</span> 16 Weeks</span>
+            <span class="meta-item"><span class="meta-icon">📊</span> Beginner–Advanced</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> 180+ enrolled</span>
+          </div>
+          <div class="course-card-tags">
+            <span class="course-tag">React</span>
+            <span class="course-tag">Node.js</span>
+            <span class="course-tag">MongoDB</span>
+            <span class="course-tag">Express</span>
+          </div>
+          <div class="course-card-footer">
+            <div class="course-price">
+              <span class="price-label">Course Fee</span>
+              <span class="price-value">₹11,999</span>
+            </div>
+            <button class="btn-enroll" data-course="mern">
+              Enroll Now <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- View all courses link -->
+    <div style="text-align:center; margin-top: var(--space-2xl);">
+      <a href="courses.html" class="btn btn-outline btn-lg">
+        View All Courses & Details →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     HOW IT WORKS
+     ======================================== -->
+<section class="section" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ How It Works</span>
+      <h2>Your Journey to <span class="text-gradient">Tech Mastery</span></h2>
+      <p>Four simple steps from enrollment to career success.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h4>Choose Your Course</h4>
+          <p>Browse our 5 expert-designed tracks and pick the one that matches your goals.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h4>Enroll via WhatsApp</h4>
+          <p>Click Enroll Now, fill a quick form, and connect with us instantly on WhatsApp.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h4>Learn & Build</h4>
+          <p>Follow the structured curriculum, attend live sessions, and complete real projects.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h4>Get Certified</h4>
+          <p>Complete the course, receive your certificate, and get placement support.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     TESTIMONIALS
+     ======================================== -->
+<section class="section" id="testimonials">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ Student Stories</span>
+      <h2>What Our <span class="text-gradient">Students Say</span></h2>
+      <p>Real feedback from students who transformed their careers with TechCrest Learning.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">
+          The Embedded Systems course was exactly what I needed. The hands-on projects with STM32 gave me real confidence. Got placed at a hardware startup within 2 months of completing the course!
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div class="author-info">
+            <div class="author-name">Arjun Kumar</div>
+            <div class="author-course">Embedded Systems Graduate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">
+          I joined TechCrest for the MERN Stack course with zero web dev knowledge. The structured curriculum and mentor support helped me build 3 full projects. Highly recommend!
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PR</div>
+          <div class="author-info">
+            <div class="author-name">Priya Rajan</div>
+            <div class="author-course">MERN Stack Graduate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">
+          The DSA course completely changed how I think about problem solving. The instructor breaks down every concept clearly. Cracked my dream company interview after this course!
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SM</div>
+          <div class="author-info">
+            <div class="author-name">Siddharth M</div>
+            <div class="author-course">DSA Graduate</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     CTA BANNER
+     ======================================== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to Start Your <span class="text-gradient">Tech Journey?</span></h2>
+      <p>Join 500+ students already learning at TechCrest. New batches starting soon — limited seats available.</p>
+      <div class="cta-actions">
+        <a href="courses.html" class="btn btn-gradient btn-lg">
+          Browse All Courses →
+        </a>
+        <a href="contact.html" class="btn btn-outline btn-lg">
+          Talk to Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <span class="logo">⚡ TechCrest Learning</span>
+        <p>Premium tech education for the next generation of engineers and developers. Learn. Build. Get Hired.</p>
+      </div>
+
+      <!-- Courses -->
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses/embedded.html">Embedded Systems</a></li>
+          <li><a href="courses/iot.html">Internet of Things</a></li>
+          <li><a href="courses/pcb.html">PCB Design</a></li>
+          <li><a href="courses/dsa.html">DSA</a></li>
+          <li><a href="courses/mernstack.html">MERN Stack</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/919897654321">📱 WhatsApp Us</a></li>
+          <li><a href="contact.html">📧 Send a Message</a></li>
+          <li><a href="contact.html">📍 Find Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> TechCrest Learning. All rights reserved.</p>
+      <p>Built with ❤️ for aspiring engineers.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========================================
+     ENROLLMENT MODAL
+     ======================================== -->
+<div class="modal-overlay" id="enrollModal" role="dialog"
+     aria-modal="true" aria-labelledby="modalCourseName">
+
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-box">
+
+    <!-- Header -->
+    <div class="modal-header">
+      <div class="modal-header-top">
+        <div class="modal-course-icon" id="modalCourseIcon">🎓</div>
+        <div class="modal-header-text">
+          <span class="modal-eyebrow">Enroll Now</span>
+          <h3 id="modalCourseName">Course Name</h3>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      </div>
+      <p>Fill in your details below. We will connect with you on WhatsApp instantly.</p>
+    </div>
+
+    <!-- Step dots -->
+    <div style="padding: 0 var(--space-xl);">
+      <div class="modal-steps">
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+
+      <!-- Form View -->
+      <div id="formView" style="display:flex; flex-direction:column; gap: var(--space-lg);">
+
+        <form class="enrollment-form" id="enrollmentForm" novalidate>
+
+          <!-- Course (auto-filled) -->
+          <div class="form-group">
+            <label><span class="lbl-icon">📚</span> Course</label>
+            <div class="course-display-field" id="courseDisplayField">
+              — auto filled —
+              <span class="lock-icon">🔒</span>
+            </div>
+          </div>
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="enrollName"><span class="lbl-icon">👤</span> Full Name</label>
+            <input type="text" id="enrollName" name="name"
+                   placeholder="e.g. Ravi Kumar" autocomplete="name" />
+            <div class="field-error" id="nameError"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="enrollEmail"><span class="lbl-icon">📧</span> Email Address</label>
+            <input type="email" id="enrollEmail" name="email"
+                   placeholder="e.g. ravi@email.com" autocomplete="email" />
+            <div class="field-error" id="emailError"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="enrollPhone"><span class="lbl-icon">📱</span> Phone Number</label>
+            <input type="tel" id="enrollPhone" name="phone"
+                   placeholder="10-digit mobile number"
+                   autocomplete="tel" maxlength="10" />
+            <div class="field-error" id="phoneError"></div>
+          </div>
+
+          <!-- Privacy note -->
+          <div class="privacy-note">
+            <span class="privacy-icon">🔒</span>
+            <p>Your details are <strong>100% private</strong>. We only use them to contact you about your enrollment via WhatsApp.</p>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit-enroll" id="submitEnrollBtn">
+            <div class="spinner"></div>
+            <span class="btn-text">
+              <span class="whatsapp-icon">💬</span>
+              Continue to WhatsApp
+            </span>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Success View -->
+      <div class="modal-success" id="successView">
+        <div class="success-checkmark">✅</div>
+        <div class="success-title">You're All Set!</div>
+        <p class="success-message">
+          Hi <strong id="successStudentName">there</strong>! Your enrollment request for
+          <strong id="successCourseName"></strong> is ready.
+          Redirecting you to WhatsApp now...
+        </p>
+        <div class="redirect-countdown">
+          Opening WhatsApp in
+          <span class="countdown-number" id="countdownNumber">3</span>
+          seconds
+        </div>
+        <a href="#" class="btn-whatsapp-manual" id="manualWhatsAppBtn"
+           target="_blank" rel="noopener">
+          💬 Open WhatsApp Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================
+     SCRIPTS
+     ======================================== -->
+<script src="js/main.js"></script>
+<script src="js/enrollment.js"></script>
+</body>
+</html>

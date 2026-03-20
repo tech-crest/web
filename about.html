@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About TechCrest Learning — Our mission, team, and story behind building India's premium tech education platform." />
+  <title>About Us — TechCrest Learning</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/enrollment.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── About-page specific styles ── */
+
+    /* Mission grid */
+    .about-mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .about-mission-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Big decorative number behind card */
+    .about-mission-visual::before {
+      content: '🎓';
+      position: absolute;
+      font-size: 14rem;
+      opacity: 0.04;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .mission-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .mission-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .mission-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: var(--shadow-blue);
+      flex-shrink: 0;
+    }
+
+    .mission-card-header h3 {
+      font-size: 1.15rem;
+    }
+
+    .mission-card-header p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .mission-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    .mission-stat-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      text-align: center;
+      transition: var(--transition-fast);
+    }
+
+    .mission-stat-box:hover {
+      border-color: var(--border-bright);
+    }
+
+    .mission-stat-box .msb-value {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .mission-stat-box .msb-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* About content headings */
+    .about-content-text .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-glow);
+      border: 1px solid var(--border-bright);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+
+    .about-content-text h2 {
+      margin-bottom: var(--space-md);
+    }
+
+    .about-content-text p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-content-text p:last-of-type {
+      margin-bottom: var(--space-xl);
+    }
+
+    /* Values grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    /* Timeline section */
+    .timeline {
+      position: relative;
+      padding-left: var(--space-2xl);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(
+        180deg,
+        var(--primary) 0%,
+        var(--secondary) 100%
+      );
+      border-radius: var(--radius-full);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-2xl);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Dot on timeline */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-2xl) - 4px);
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .timeline-year {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .timeline-item h4 {
+      font-size: 1rem;
+      margin-bottom: var(--space-xs);
+      color: var(--text-primary);
+    }
+
+    .timeline-item p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Highlight strip */
+    .highlight-strip {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-2xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2xl);
+      flex-wrap: wrap;
+    }
+
+    .highlight-strip .hs-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .highlight-strip .hs-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .highlight-strip .hs-content p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .highlight-strip .hs-action {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 700px) {
+      .about-mission-grid {
+        grid-template-columns: 1fr;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .highlight-strip {
+        flex-direction: column;
+        text-align: center;
+      }
+      .highlight-strip .hs-action {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================
+     NAVBAR
+     ======================================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">TechCrest<span>Learning</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li class="nav-dropdown">
+        <a href="courses.html">
+          Courses
+          <svg class="chevron" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="courses/embedded.html"><span class="course-dot"></span>Embedded Systems</a></li>
+          <li><a href="courses/iot.html"><span class="course-dot"></span>Internet of Things</a></li>
+          <li><a href="courses/pcb.html"><span class="course-dot"></span>PCB Design</a></li>
+          <li><a href="courses/dsa.html"><span class="course-dot"></span>DSA</a></li>
+          <li><a href="courses/mernstack.html"><span class="course-dot"></span>MERN Stack</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="courses.html" class="nav-cta">Explore Courses</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="about.html" class="active">🏢 About</a></li>
+    <li>
+      <a href="courses.html" class="mobile-submenu-toggle">
+        📚 Courses
+        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round"
+             style="margin-left:auto">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="courses/embedded.html">🔌 Embedded Systems</a></li>
+        <li><a href="courses/iot.html">📡 Internet of Things</a></li>
+        <li><a href="courses/pcb.html">🔧 PCB Design</a></li>
+        <li><a href="courses/dsa.html">🧠 DSA</a></li>
+        <li><a href="courses/mernstack.html">💻 MERN Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">📞 Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="courses.html" class="btn btn-gradient btn-lg">Explore All Courses →</a>
+  </div>
+</div>
+
+
+<!-- ========================================
+     PAGE HERO
+     ======================================== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">✦ Our Story</span>
+    <h1>We Are <span class="text-gradient">TechCrest Learning</span></h1>
+    <p>Built by engineers, for engineers. We exist to make world-class tech education
+       accessible, practical, and career-ready for every aspiring student.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span class="current">About Us</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     MISSION SECTION
+     ======================================== -->
+<section class="section">
+  <div class="container">
+    <div class="about-mission-grid">
+
+      <!-- Left: Text -->
+      <div class="about-content-text reveal">
+        <span class="eyebrow">✦ Our Mission</span>
+        <h2>Bridging the Gap Between <span class="text-gradient">Education & Industry</span></h2>
+        <p>
+          TechCrest Learning was founded with one clear goal — to close the massive
+          gap between what colleges teach and what the industry actually demands.
+          We saw too many talented engineers struggle not because of lack of potential,
+          but because of lack of the right, practical skills.
+        </p>
+        <p>
+          Every course we design is built in close collaboration with industry
+          professionals. Every project is real-world. Every mentor has walked
+          the path our students are walking. We do not just teach — we prepare.
+        </p>
+        <a href="courses.html" class="btn btn-gradient">
+          Explore Our Courses →
+        </a>
+      </div>
+
+      <!-- Right: Stats card -->
+      <div class="about-mission-visual reveal reveal-delay-2">
+        <div class="mission-card">
+          <div class="mission-card-header">
+            <div class="mission-icon-box">⚡</div>
+            <div>
+              <h3>TechCrest by Numbers</h3>
+              <p>Our impact so far</p>
+            </div>
+          </div>
+          <div class="mission-stat-grid">
+            <div class="mission-stat-box">
+              <span class="msb-value counter" data-target="500" data-suffix="+">500+</span>
+              <span class="msb-label">Students Trained</span>
+            </div>
+            <div class="mission-stat-box">
+              <span class="msb-value counter" data-target="5">5</span>
+              <span class="msb-label">Expert Courses</span>
+            </div>
+            <div class="mission-stat-box">
+              <span class="msb-value counter" data-target="4.9" data-suffix="★">4.9★</span>
+              <span class="msb-label">Avg Rating</span>
+            </div>
+            <div class="mission-stat-box">
+              <span class="msb-value counter" data-target="95" data-suffix="%">95%</span>
+              <span class="msb-label">Placement Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     OUR VALUES
+     ======================================== -->
+<section class="section"
+  style="background:var(--bg-card);
+         border-top:1px solid var(--border);
+         border-bottom:1px solid var(--border);">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ What We Stand For</span>
+      <h2>Our Core <span class="text-gradient">Values</span></h2>
+      <p>These are the principles that guide everything we build, teach, and deliver.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🎯</div>
+        <div class="value-content">
+          <h3>Outcome-First Learning</h3>
+          <p>We design every lesson around a real skill outcome. No bloat, no filler — only content that directly helps you grow as a professional.</p>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🔬</div>
+        <div class="value-content">
+          <h3>Hands-On Always</h3>
+          <p>Theory alone does not build careers. Every concept is immediately applied through labs, projects, and real hardware or code challenges.</p>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🤝</div>
+        <div class="value-content">
+          <h3>Mentor-Led Growth</h3>
+          <p>Our instructors are working professionals — not just academics. You learn from people solving the very problems you will face on the job.</p>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🚀</div>
+        <div class="value-content">
+          <h3>Career Acceleration</h3>
+          <p>We are not satisfied until you are placed. Resume help, mock interviews, and direct referrals are built into every course completion.</p>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🌐</div>
+        <div class="value-content">
+          <h3>Accessible Education</h3>
+          <p>Premium quality should not mean unaffordable prices. We keep our fees fair while maintaining the highest standard of teaching.</p>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🔄</div>
+        <div class="value-content">
+          <h3>Always Evolving</h3>
+          <p>Technology changes fast. So do we. Our curriculum is reviewed and updated regularly to stay ahead of industry trends and demands.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     OUR JOURNEY / TIMELINE
+     ======================================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ Our Journey</span>
+      <h2>How We <span class="text-gradient">Got Here</span></h2>
+      <p>From a small mentoring group to a full-fledged tech education platform.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div style="max-width: 640px; margin-inline: auto;">
+      <div class="timeline reveal">
+
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <h4>The Beginning</h4>
+          <p>TechCrest started as a small WhatsApp group of engineers mentoring
+             fresh graduates on Embedded Systems fundamentals. Word spread fast.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <h4>First Batch Launched</h4>
+          <p>We launched our first structured Embedded Systems batch with 20 students.
+             18 of them got placed within 3 months. We knew we were onto something.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <h4>Expanding the Curriculum</h4>
+          <p>Added IoT, PCB Design, and DSA tracks. Crossed 200 enrolled students.
+             Built our first dedicated lab facility for hands-on hardware training.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <h4>MERN Stack & Web Dev</h4>
+          <p>Launched the MERN Stack Development course in response to overwhelming
+             demand. Crossed 400 students trained and achieved a 95% placement rate.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <h4>TechCrest 2.0</h4>
+          <p>Revamped all courses with updated curriculum, launched this new platform,
+             and set a goal to train 1000+ students by year end. The journey continues.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     TEAM SECTION
+     ======================================== -->
+<section class="section"
+  style="background:var(--bg-card);
+         border-top:1px solid var(--border);
+         border-bottom:1px solid var(--border);">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ The Team</span>
+      <h2>Meet Your <span class="text-gradient">Mentors</span></h2>
+      <p>Industry professionals who have been in your shoes — and know exactly
+         what it takes to succeed.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">👨‍💻</div>
+        <h3>Karthik Rajan</h3>
+        <div class="team-role">Embedded Systems Lead</div>
+        <p class="team-bio">8+ years in firmware development at automotive companies. Expert in STM32, RTOS and low-level C.</p>
+      </div>
+
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">👩‍🔬</div>
+        <h3>Divya Menon</h3>
+        <div class="team-role">IoT & Cloud Architect</div>
+        <p class="team-bio">Former IoT engineer at a smart city startup. Specializes in ESP32, AWS IoT, and MQTT protocols.</p>
+      </div>
+
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar">👨‍🔧</div>
+        <h3>Suresh Babu</h3>
+        <div class="team-role">PCB Design Expert</div>
+        <p class="team-bio">10 years of PCB design for aerospace and consumer electronics. Proficient in KiCad and Altium Designer.</p>
+      </div>
+
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">👨‍🏫</div>
+        <h3>Anil Sharma</h3>
+        <div class="team-role">DSA & Algorithms Mentor</div>
+        <p class="team-bio">Ex-Google SWE with a passion for teaching. Has helped 100+ students crack top-tier company interviews.</p>
+      </div>
+
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">👩‍💻</div>
+        <h3>Preethi Nair</h3>
+        <div class="team-role">MERN Stack Instructor</div>
+        <p class="team-bio">Full-stack developer with 6 years of experience building SaaS products. React and Node.js specialist.</p>
+      </div>
+
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar">👨‍💼</div>
+        <h3>Vikram Iyer</h3>
+        <div class="team-role">Founder & Director</div>
+        <p class="team-bio">Serial entrepreneur and engineer. Founded TechCrest to solve the skills gap he personally experienced.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     CTA STRIP
+     ======================================== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="highlight-strip reveal">
+      <span class="hs-icon">💬</span>
+      <div class="hs-content">
+        <h3>Have Questions About TechCrest?</h3>
+        <p>We are happy to walk you through our courses, batches, fees, and
+           placement process. Reach out to us anytime on WhatsApp.</p>
+      </div>
+      <div class="hs-action">
+        <a href="contact.html" class="btn btn-gradient">Contact Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">⚡ TechCrest Learning</span>
+        <p>Premium tech education for the next generation of engineers and developers. Learn. Build. Get Hired.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses/embedded.html">Embedded Systems</a></li>
+          <li><a href="courses/iot.html">Internet of Things</a></li>
+          <li><a href="courses/pcb.html">PCB Design</a></li>
+          <li><a href="courses/dsa.html">DSA</a></li>
+          <li><a href="courses/mernstack.html">MERN Stack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/919897654321">📱 WhatsApp Us</a></li>
+          <li><a href="contact.html">📧 Send a Message</a></li>
+          <li><a href="contact.html">📍 Find Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> TechCrest Learning. All rights reserved.</p>
+      <p>Built with ❤️ for aspiring engineers.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========================================
+     ENROLLMENT MODAL (same on every page)
+     ======================================== -->
+<div class="modal-overlay" id="enrollModal" role="dialog"
+     aria-modal="true" aria-labelledby="modalCourseName">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-top">
+        <div class="modal-course-icon" id="modalCourseIcon">🎓</div>
+        <div class="modal-header-text">
+          <span class="modal-eyebrow">Enroll Now</span>
+          <h3 id="modalCourseName">Course Name</h3>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      </div>
+      <p>Fill in your details below. We will connect with you on WhatsApp instantly.</p>
+    </div>
+    <div style="padding: 0 var(--space-xl);">
+      <div class="modal-steps">
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div id="formView" style="display:flex; flex-direction:column; gap: var(--space-lg);">
+        <form class="enrollment-form" id="enrollmentForm" novalidate>
+          <div class="form-group">
+            <label><span class="lbl-icon">📚</span> Course</label>
+            <div class="course-display-field" id="courseDisplayField">— auto filled —<span class="lock-icon">🔒</span></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollName"><span class="lbl-icon">👤</span> Full Name</label>
+            <input type="text" id="enrollName" name="name" placeholder="e.g. Ravi Kumar" autocomplete="name" />
+            <div class="field-error" id="nameError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollEmail"><span class="lbl-icon">📧</span> Email Address</label>
+            <input type="email" id="enrollEmail" name="email" placeholder="e.g. ravi@email.com" autocomplete="email" />
+            <div class="field-error" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollPhone"><span class="lbl-icon">📱</span> Phone Number</label>
+            <input type="tel" id="enrollPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" maxlength="10" />
+            <div class="field-error" id="phoneError"></div>
+          </div>
+          <div class="privacy-note">
+            <span class="privacy-icon">🔒</span>
+            <p>Your details are <strong>100% private</strong>. We only use them to contact you about your enrollment via WhatsApp.</p>
+          </div>
+          <button type="submit" class="btn-submit-enroll" id="submitEnrollBtn">
+            <div class="spinner"></div>
+            <span class="btn-text"><span class="whatsapp-icon">💬</span> Continue to WhatsApp</span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-success" id="successView">
+        <div class="success-checkmark">✅</div>
+        <div class="success-title">You're All Set!</div>
+        <p class="success-message">Hi <strong id="successStudentName">there</strong>! Your enrollment request for <strong id="successCourseName"></strong> is ready. Redirecting you to WhatsApp now...</p>
+        <div class="redirect-countdown">Opening WhatsApp in <span class="countdown-number" id="countdownNumber">3</span> seconds</div>
+        <a href="#" class="btn-whatsapp-manual" id="manualWhatsAppBtn" target="_blank" rel="noopener">💬 Open WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/enrollment.js"></script>
+</body>
+</html>

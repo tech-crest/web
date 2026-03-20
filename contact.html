@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact TechCrest Learning — Reach us on WhatsApp, email or fill the contact form. We reply within 24 hours." />
+  <title>Contact Us — TechCrest Learning</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/enrollment.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── Contact page specific ── */
+
+    /* Contact grid layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+
+    /* ---- Contact Info Panel (left) ---- */
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .contact-info-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+      font-family: var(--font-display);
+    }
+
+    .contact-info-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    /* Info card */
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .contact-info-card:hover {
+      border-color: var(--border-bright);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-blue);
+    }
+
+    .contact-info-card.whatsapp:hover {
+      border-color: rgba(37,211,102,0.35);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.15);
+    }
+
+    .cic-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cic-icon.blue   { background: var(--primary-glow); border: 1px solid var(--border-bright); }
+    .cic-icon.teal   { background: rgba(0,200,150,0.12); border: 1px solid rgba(0,200,150,0.2); }
+    .cic-icon.orange { background: var(--accent-soft); border: 1px solid rgba(255,107,53,0.2); }
+    .cic-icon.green  { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.25); }
+
+    .cic-text .cic-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .cic-text .cic-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .cic-text .cic-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: block;
+    }
+
+    .cic-arrow {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-info-card:hover .cic-arrow {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    /* Office hours */
+    .office-hours {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+
+    .office-hours h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-row .day {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .hours-row .time {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .hours-row .open-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--secondary);
+      background: rgba(0,200,150,0.1);
+      border: 1px solid rgba(0,200,150,0.2);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .hours-row .closed-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ---- Contact Form Panel (right) ---- */
+    .contact-form-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top gradient accent */
+    .contact-form-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad-primary);
+    }
+
+    .form-panel-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .form-panel-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .form-panel-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact form grid */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Subject select */
+    .subject-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    .subject-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+    }
+
+    .subject-option:hover {
+      border-color: var(--border-bright);
+      color: var(--text-primary);
+    }
+
+    .subject-option.selected {
+      background: var(--primary-glow);
+      border-color: var(--border-bright);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Textarea */
+    .contact-form textarea {
+      width: 100%;
+      resize: vertical;
+      min-height: 130px;
+      max-height: 300px;
+    }
+
+    /* Submit button */
+    .contact-submit-btn {
+      width: 100%;
+      padding: 1rem;
+      font-size: 0.98rem;
+      font-weight: 700;
+      font-family: var(--font-body);
+      background: var(--grad-primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      letter-spacing: 0.02em;
+    }
+
+    .contact-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(10,132,255,0.4);
+      filter: brightness(1.07);
+    }
+
+    /* Form success state */
+    .form-success-msg {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-lg);
+      padding: var(--space-2xl) 0;
+    }
+
+    .form-success-msg.visible {
+      display: flex;
+    }
+
+    .form-success-msg .fs-icon {
+      font-size: 3rem;
+      animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    }
+
+    .form-success-msg h3 {
+      font-size: 1.3rem;
+    }
+
+    .form-success-msg p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 340px;
+    }
+
+    /* ---- FAQ Section ---- */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item.open {
+      border-color: var(--border-bright);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg);
+      cursor: pointer;
+      gap: var(--space-md);
+      user-select: none;
+    }
+
+    .faq-question h4 {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: var(--transition-smooth);
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--primary-glow);
+      border-color: var(--border-bright);
+      color: var(--primary);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .faq-answer-inner {
+      padding: 0 var(--space-lg) var(--space-lg);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-md);
+    }
+
+    .faq-answer-inner a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: var(--transition-fast);
+    }
+
+    .faq-answer-inner a:hover {
+      text-decoration-color: var(--primary);
+    }
+
+    /* WhatsApp floating CTA */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 2rem;
+      z-index: 998;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: #25D366;
+      color: #fff;
+      padding: 0.65rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition-smooth);
+      animation: float-wa 3s ease-in-out infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+    }
+
+    @keyframes float-wa {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
+    }
+
+    @media (max-width: 480px) {
+      .whatsapp-float .wa-text { display: none; }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================
+     NAVBAR
+     ======================================== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">TechCrest<span>Learning</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="courses.html">
+          Courses
+          <svg class="chevron" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="courses/embedded.html"><span class="course-dot"></span>Embedded Systems</a></li>
+          <li><a href="courses/iot.html"><span class="course-dot"></span>Internet of Things</a></li>
+          <li><a href="courses/pcb.html"><span class="course-dot"></span>PCB Design</a></li>
+          <li><a href="courses/dsa.html"><span class="course-dot"></span>DSA</a></li>
+          <li><a href="courses/mernstack.html"><span class="course-dot"></span>MERN Stack</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="courses.html" class="nav-cta">Explore Courses</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="about.html">🏢 About</a></li>
+    <li>
+      <a href="courses.html" class="mobile-submenu-toggle">
+        📚 Courses
+        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round"
+             style="margin-left:auto">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <ul class="mobile-submenu">
+        <li><a href="courses/embedded.html">🔌 Embedded Systems</a></li>
+        <li><a href="courses/iot.html">📡 Internet of Things</a></li>
+        <li><a href="courses/pcb.html">🔧 PCB Design</a></li>
+        <li><a href="courses/dsa.html">🧠 DSA</a></li>
+        <li><a href="courses/mernstack.html">💻 MERN Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html" class="active">📞 Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="courses.html" class="btn btn-gradient btn-lg">Explore All Courses →</a>
+  </div>
+</div>
+
+
+<!-- ========================================
+     PAGE HERO
+     ======================================== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">✦ Get In Touch</span>
+    <h1>We Would Love to <span class="text-gradient">Hear From You</span></h1>
+    <p>Have questions about courses, fees, batches or placements?
+       Reach out — we reply within 24 hours.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Contact</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     CONTACT GRID
+     ======================================== -->
+<section class="section" style="padding-top: var(--space-2xl);">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Info Panel -->
+      <div class="contact-info-panel">
+
+        <div>
+          <h2 class="contact-info-title">Let's Talk</h2>
+          <p class="contact-info-subtitle">
+            Whether you want to enroll, ask about our curriculum, or just
+            explore if TechCrest is right for you — we're here to help.
+          </p>
+        </div>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919897654321" target="_blank"
+           rel="noopener" class="contact-info-card whatsapp reveal">
+          <div class="cic-icon green">💬</div>
+          <div class="cic-text">
+            <span class="cic-label">WhatsApp (Fastest)</span>
+            <span class="cic-value">+91 98976 54321</span>
+            <span class="cic-note">Usually replies within 1 hour</span>
+          </div>
+          <span class="cic-arrow">→</span>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+919897654321" class="contact-info-card reveal reveal-delay-1">
+          <div class="cic-icon blue">📞</div>
+          <div class="cic-text">
+            <span class="cic-label">Phone Call</span>
+            <span class="cic-value">+91 98976 54321</span>
+            <span class="cic-note">Mon–Sat, 9 AM – 7 PM</span>
+          </div>
+          <span class="cic-arrow">→</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:hello@techcrestlearning.com"
+           class="contact-info-card reveal reveal-delay-2">
+          <div class="cic-icon teal">📧</div>
+          <div class="cic-text">
+            <span class="cic-label">Email</span>
+            <span class="cic-value">hello@techcrestlearning.com</span>
+            <span class="cic-note">We reply within 24 hours</span>
+          </div>
+          <span class="cic-arrow">→</span>
+        </a>
+
+        <!-- Location -->
+        <div class="contact-info-card reveal reveal-delay-3"
+             style="cursor:default;">
+          <div class="cic-icon orange">📍</div>
+          <div class="cic-text">
+            <span class="cic-label">Location</span>
+            <span class="cic-value">Bengaluru, Karnataka</span>
+            <span class="cic-note">Online & offline batches available</span>
+          </div>
+        </div>
+
+        <!-- Office Hours -->
+        <div class="office-hours reveal">
+          <h4>🕐 Office Hours</h4>
+          <div class="hours-row">
+            <span class="day">Monday – Friday</span>
+            <span class="time">9:00 AM – 7:00 PM</span>
+            <span class="open-tag">● Open</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Saturday</span>
+            <span class="time">10:00 AM – 5:00 PM</span>
+            <span class="open-tag">● Open</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Sunday</span>
+            <span class="time">Closed</span>
+            <span class="closed-tag">Closed</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div class="contact-form-panel reveal">
+
+        <div class="form-panel-header">
+          <h3>Send Us a Message</h3>
+          <p>Fill in the form below and we'll get back to you shortly.</p>
+        </div>
+
+        <!-- Form -->
+        <div id="contactFormWrapper">
+          <form class="contact-form" id="contactForm" novalidate>
+
+            <!-- Name + Email row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">👤 Full Name</label>
+                <input type="text" id="contactName" name="name"
+                       placeholder="Your full name" autocomplete="name" />
+                <div class="field-error" id="cNameError"></div>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">📧 Email Address</label>
+                <input type="email" id="contactEmail" name="email"
+                       placeholder="your@email.com" autocomplete="email" />
+                <div class="field-error" id="cEmailError"></div>
+              </div>
+            </div>
+
+            <!-- Phone + Course row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">📱 Phone Number</label>
+                <input type="tel" id="contactPhone" name="phone"
+                       placeholder="10-digit number" maxlength="10"
+                       autocomplete="tel" />
+                <div class="field-error" id="cPhoneError"></div>
+              </div>
+              <div class="form-group">
+                <label for="contactCourse">📚 Interested Course</label>
+                <select id="contactCourse" name="course">
+                  <option value="">— Select a course —</option>
+                  <option value="Embedded Systems">Embedded Systems</option>
+                  <option value="Internet of Things">Internet of Things</option>
+                  <option value="PCB Design">PCB Design</option>
+                  <option value="Data Structures & Algorithms">DSA</option>
+                  <option value="MERN Stack Development">MERN Stack</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group">
+              <label>📋 Subject</label>
+              <div class="subject-options" id="subjectOptions">
+                <button type="button" class="subject-option selected"
+                        data-subject="Course Enquiry">
+                  🎓 Course Enquiry
+                </button>
+                <button type="button" class="subject-option"
+                        data-subject="Batch Schedule">
+                  📅 Batch Schedule
+                </button>
+                <button type="button" class="subject-option"
+                        data-subject="Fee & Payment">
+                  💳 Fee & Payment
+                </button>
+                <button type="button" class="subject-option"
+                        data-subject="Placement Support">
+                  🏢 Placement Support
+                </button>
+              </div>
+              <input type="hidden" id="selectedSubject"
+                     value="Course Enquiry" />
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="contactMessage">💬 Message</label>
+              <textarea id="contactMessage" name="message"
+                        placeholder="Tell us anything — questions, doubts, or details about what you're looking for..."
+                        rows="5"></textarea>
+              <div class="field-error" id="cMsgError"></div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="contact-submit-btn"
+                    id="contactSubmitBtn">
+              <span>📨</span>
+              <span id="contactBtnText">Send Message</span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Success State -->
+        <div class="form-success-msg" id="contactSuccessMsg">
+          <div class="fs-icon">✅</div>
+          <h3>Message Sent!</h3>
+          <p>
+            Thanks for reaching out. Our team will get back to you
+            within 24 hours. You can also reach us directly on
+            <a href="https://wa.me/919897654321" target="_blank">WhatsApp</a>
+            for a faster response.
+          </p>
+          <a href="courses.html" class="btn btn-gradient">
+            Browse Courses →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FAQ SECTION
+     ======================================== -->
+<section class="section"
+  style="background:var(--bg-card);
+         border-top:1px solid var(--border);
+         border-bottom:1px solid var(--border);">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">✦ FAQ</span>
+      <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+      <p>Quick answers to the most common questions we receive.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question">
+          <h4>Do I need prior experience to enroll in your courses?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Most of our courses are designed for beginners and do not require
+            any prior experience. The Embedded Systems, IoT, PCB Design, and
+            MERN Stack courses all start from the very basics. For DSA, basic
+            knowledge of any programming language is helpful but not mandatory —
+            we cover everything from scratch.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-question">
+          <h4>Are the classes online or offline?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We offer both online and offline batches. Online classes are
+            conducted via Zoom/Google Meet with recorded sessions available
+            for revision. Offline batches are held at our Bengaluru facility.
+            You can choose what works best for you at the time of enrollment.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <div class="faq-question">
+          <h4>What happens after I click "Enroll Now"?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            When you click Enroll Now on any course, you fill in a quick form
+            with your name, email, and phone. You are then redirected to our
+            WhatsApp with a pre-filled message that includes your details and
+            the course name. Our team reviews it and contacts you within 1 hour
+            to confirm your seat and guide you on payment and batch schedule.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h4>Do you offer EMI or instalment payment options?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes, we offer flexible payment options including 2–3 instalment
+            plans for all courses. Please mention this when you contact us on
+            WhatsApp or via this form and we will set it up for you without
+            any additional charges.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question">
+          <h4>Will I get a certificate after completing the course?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes. Every student who completes the course and the final project
+            receives a TechCrest Learning certificate of completion. This
+            certificate is digitally signed and includes your course details,
+            duration, and skills covered. It can be shared on LinkedIn and
+            added to your resume.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-question">
+          <h4>How does placement support work?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Our placement support includes resume building, LinkedIn profile
+            optimization, mock technical interviews, and direct referrals to
+            our hiring partner companies. We stay connected with you even after
+            course completion until you land your first or next role. Our
+            current placement rate stands at 95%.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <div class="faq-question">
+          <h4>How long do I have access to course materials?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            You get lifetime access to all course materials, recorded sessions,
+            notes, and project files. Whenever we update the course content with
+            new topics or tools, you automatically get access to those updates
+            at no extra cost.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     BOTTOM CTA
+     ======================================== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Still Have <span class="text-gradient">Questions?</span></h2>
+      <p>The fastest way to get answers is on WhatsApp. Our team is online
+         Monday to Saturday, 9 AM to 7 PM.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/919897654321" target="_blank"
+           rel="noopener" class="btn btn-gradient btn-lg">
+          💬 Message on WhatsApp
+        </a>
+        <a href="courses.html" class="btn btn-outline btn-lg">
+          Browse Courses
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">⚡ TechCrest Learning</span>
+        <p>Premium tech education for the next generation of engineers and developers. Learn. Build. Get Hired.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses/embedded.html">Embedded Systems</a></li>
+          <li><a href="courses/iot.html">Internet of Things</a></li>
+          <li><a href="courses/pcb.html">PCB Design</a></li>
+          <li><a href="courses/dsa.html">DSA</a></li>
+          <li><a href="courses/mernstack.html">MERN Stack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/919897654321">📱 WhatsApp Us</a></li>
+          <li><a href="contact.html">📧 Send a Message</a></li>
+          <li><a href="contact.html">📍 Find Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> TechCrest Learning. All rights reserved.</p>
+      <p>Built with ❤️ for aspiring engineers.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919897654321" target="_blank"
+   rel="noopener" class="whatsapp-float">
+  💬 <span class="wa-text">Chat on WhatsApp</span>
+</a>
+
+
+<!-- Enrollment Modal -->
+<div class="modal-overlay" id="enrollModal" role="dialog"
+     aria-modal="true" aria-labelledby="modalCourseName">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-top">
+        <div class="modal-course-icon" id="modalCourseIcon">🎓</div>
+        <div class="modal-header-text">
+          <span class="modal-eyebrow">Enroll Now</span>
+          <h3 id="modalCourseName">Course Name</h3>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      </div>
+      <p>Fill in your details below. We will connect with you on WhatsApp instantly.</p>
+    </div>
+    <div style="padding:0 var(--space-xl);">
+      <div class="modal-steps">
+        <div class="modal-step-dot active"></div>
+        <div class="modal-step-dot"></div>
+        <div class="modal-step-dot"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div id="formView" style="display:flex;flex-direction:column;gap:var(--space-lg);">
+        <form class="enrollment-form" id="enrollmentForm" novalidate>
+          <div class="form-group">
+            <label><span class="lbl-icon">📚</span> Course</label>
+            <div class="course-display-field" id="courseDisplayField">— auto filled —<span class="lock-icon">🔒</span></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollName"><span class="lbl-icon">👤</span> Full Name</label>
+            <input type="text" id="enrollName" name="name" placeholder="e.g. Ravi Kumar" autocomplete="name" />
+            <div class="field-error" id="nameError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollEmail"><span class="lbl-icon">📧</span> Email Address</label>
+            <input type="email" id="enrollEmail" name="email" placeholder="e.g. ravi@email.com" autocomplete="email" />
+            <div class="field-error" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <label for="enrollPhone"><span class="lbl-icon">📱</span> Phone Number</label>
+            <input type="tel" id="enrollPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" maxlength="10" />
+            <div class="field-error" id="phoneError"></div>
+          </div>
+          <div class="privacy-note">
+            <span class="privacy-icon">🔒</span>
+            <p>Your details are <strong>100% private</strong>. We only use them to contact you about your enrollment via WhatsApp.</p>
+          </div>
+          <button type="submit" class="btn-submit-enroll" id="submitEnrollBtn">
+            <div class="spinner"></div>
+            <span class="btn-text"><span class="whatsapp-icon">💬</span> Continue to WhatsApp</span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-success" id="successView">
+        <div class="success-checkmark">✅</div>
+        <div class="success-title">You're All Set!</div>
+        <p class="success-message">Hi <strong id="successStudentName">there</strong>! Your enrollment for <strong id="successCourseName"></strong> is ready. Redirecting to WhatsApp...</p>
+        <div class="redirect-countdown">Opening WhatsApp in <span class="countdown-number" id="countdownNumber">3</span> seconds</div>
+        <a href="#" class="btn-whatsapp-manual" id="manualWhatsAppBtn" target="_blank" rel="noopener">💬 Open WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/enrollment.js"></script>
+<script>
+  /* ── Contact form logic ── */
+
+  const contactForm    = document.getElementById('contactForm');
+  const contactSuccess = document.getElementById('contactSuccessMsg');
+  const contactWrapper = document.getElementById('contactFormWrapper');
+  const contactBtn     = document.getElementById('contactSubmitBtn');
+  const contactBtnText = document.getElementById('contactBtnText');
+
+  /* Subject option toggle */
+  document.querySelectorAll('.subject-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.subject-option')
+        .forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('selectedSubject').value =
+        btn.dataset.subject;
+    });
+  });
+
+  /* Phone digits only */
+  document.getElementById('contactPhone')?.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+
+  /* Form submit */
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name    = document.getElementById('contactName');
+    const email   = document.getElementById('contactEmail');
+    const phone   = document.getElementById('contactPhone');
+    const message = document.getElementById('contactMessage');
+
+    let valid = true;
+
+    /* Validate name */
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      showContactError('cNameError', '⚠ Please enter your full name');
+      name.classList.add('input-error');
+      valid = false;
+    } else {
+      clearContactError('cNameError');
+      name.classList.remove('input-error');
+    }
+
+    /* Validate email */
+    if (!window.tcValidateEmail(email.value.trim())) {
+      showContactError('cEmailError', '⚠ Please enter a valid email address');
+      email.classList.add('input-error');
+      valid = false;
+    } else {
+      clearContactError('cEmailError');
+      email.classList.remove('input-error');
+    }
+
+    /* Validate phone */
+    if (!window.tcValidatePhone(phone.value.trim())) {
+      showContactError('cPhoneError', '⚠ Please enter a valid 10-digit number');
+      phone.classList.add('input-error');
+      valid = false;
+    } else {
+      clearContactError('cPhoneError');
+      phone.classList.remove('input-error');
+    }
+
+    /* Validate message */
+    if (!message.value.trim() || message.value.trim().length < 10) {
+      showContactError('cMsgError', '⚠ Please write a message (at least 10 characters)');
+      message.classList.add('input-error');
+      valid = false;
+    } else {
+      clearContactError('cMsgError');
+      message.classList.remove('input-error');
+    }
+
+    if (!valid) return;
+
+    /* Show loading */
+    contactBtn.disabled = true;
+    contactBtnText.textContent = 'Sending...';
+
+    /* Simulate send delay */
+    setTimeout(() => {
+      contactWrapper.style.display = 'none';
+      contactSuccess.classList.add('visible');
+      window.tcToast?.('Message sent successfully!', 'success');
+    }, 1200);
+  });
+
+  function showContactError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = msg; el.classList.add('visible'); }
+  }
+
+  function clearContactError(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('visible');
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer   = item.querySelector('.faq-answer');
+    const icon     = item.querySelector('.faq-icon');
+
+    question?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      /* Close all */
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0';
+        const ico = i.querySelector('.faq-icon');
+        if (ico) ico.style.transform = 'rotate(0deg)';
+      });
+
+      /* Toggle current */
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
