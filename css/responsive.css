@@ -1,0 +1,473 @@
+/* ============================================
+   TechCrest Learning — Responsive Styles
+   responsive.css
+   ============================================ */
+
+/* ==========================================
+   BREAKPOINTS USED:
+   xl  → max-width: 1100px  (large tablets / small laptops)
+   lg  → max-width: 900px   (tablets landscape)
+   md  → max-width: 700px   (tablets portrait / large phones)
+   sm  → max-width: 480px   (mobile phones)
+   ========================================== */
+
+/* ---------- XL — 1100px ---------- */
+@media (max-width: 1100px) {
+
+  /* Container */
+  .container {
+    padding-inline: var(--space-lg);
+  }
+
+  /* Hero */
+  .hero .container {
+    gap: var(--space-2xl);
+  }
+
+  .hero-heading {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
+
+  /* Grids */
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .footer-grid .footer-brand {
+    grid-column: span 3;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Process steps */
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .process-steps::before {
+    display: none;
+  }
+}
+
+/* ---------- LG — 900px ---------- */
+@media (max-width: 900px) {
+
+  /* Spacing overrides */
+  .section {
+    padding-block: var(--space-3xl);
+  }
+
+  /* Navbar — show hamburger */
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-mobile-menu {
+    display: flex;
+  }
+
+  /* Hero — stack to single column */
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-block: var(--space-3xl);
+    gap: var(--space-2xl);
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 560px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  /* Hero visual sizing */
+  .hero-visual {
+    max-width: 420px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .hero-card-mini.card-top-left {
+    left: -2%;
+  }
+
+  .hero-card-mini.card-bottom-right {
+    right: -2%;
+  }
+
+  /* Stats bar */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .stats-grid .stat-divider:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Grids */
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-grid .footer-brand {
+    grid-column: span 2;
+  }
+
+  /* Course page layout */
+  .course-page-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .enroll-section {
+    position: static;
+    order: -1;
+  }
+
+  /* About page */
+  .about-mission-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding: var(--space-2xl);
+  }
+}
+
+/* ---------- MD — 700px ---------- */
+@media (max-width: 700px) {
+
+  /* Typography scale down */
+  h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+  h2 { font-size: clamp(1.6rem, 6vw, 2rem); }
+  h3 { font-size: 1.15rem; }
+
+  /* Container */
+  .container {
+    padding-inline: var(--space-md);
+  }
+
+  /* Section header */
+  .section-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Courses grid → single column */
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Features grid → single column */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials → single column */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Team → single column */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Process steps → single column */
+  .process-steps {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  /* Hero */
+  .hero .container {
+    padding-block: var(--space-2xl);
+  }
+
+  .hero-card-mini {
+    display: none;
+  }
+
+  /* Stats bar */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Footer → single column */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-grid .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* CTA actions */
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Page hero */
+  .page-hero {
+    padding-top: calc(var(--nav-height) + var(--space-2xl));
+    padding-bottom: var(--space-2xl);
+  }
+
+  /* Value cards (about) */
+  .value-card {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  /* Contact page grid */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: var(--space-md);
+    align-items: flex-end;
+  }
+
+  .modal-box {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Syllabus accordion */
+  .syllabus-item-header {
+    padding: var(--space-md) !important;
+  }
+}
+
+/* ---------- SM — 480px ---------- */
+@media (max-width: 480px) {
+
+  /* Tighten spacing */
+  .section {
+    padding-block: var(--space-2xl);
+  }
+
+  .section-sm {
+    padding-block: var(--space-xl);
+  }
+
+  /* Hero CTA — stack buttons */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  /* Stat number scale */
+  .stat-item .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Team → single col */
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  /* Stats bar */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Enroll section */
+  .enroll-section {
+    padding: var(--space-lg);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 0.75rem;
+  }
+
+  /* Course card footer */
+  .course-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .btn-enroll {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Modal full height on very small screens */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-box {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Modal header tighten */
+  .modal-header {
+    padding: var(--space-lg) var(--space-lg) var(--space-sm);
+  }
+
+  .modal-body {
+    padding: var(--space-sm) var(--space-lg) var(--space-lg);
+  }
+
+  /* Success screen */
+  .modal-success {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding: var(--space-xl) var(--space-md);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Nav logo text hide on tiny screens */
+  .nav-logo .logo-text span {
+    display: none;
+  }
+
+  /* Page hero padding */
+  .page-hero {
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+  }
+
+  /* Syllabus */
+  .syllabus-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Process steps */
+  .process-step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- Utility: hide/show at breakpoints ---------- */
+@media (max-width: 900px) {
+  .hide-on-tablet { display: none !important; }
+}
+
+@media (max-width: 700px) {
+  .hide-on-mobile { display: none !important; }
+}
+
+@media (min-width: 701px) {
+  .show-on-mobile-only { display: none !important; }
+}
+
+/* ---------- Reduced Motion Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes float-card { }
+  @keyframes float-mini-1 { }
+  @keyframes float-mini-2 { }
+  @keyframes pulse-dot { }
+}

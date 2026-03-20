@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DSA Course — TechCrest Learning. Master Data Structures and Algorithms and crack top tech company interviews." />
+  <title>Data Structures & Algorithms — TechCrest Learning</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/hero.css" />
+  <link rel="stylesheet" href="../css/cards.css" />
+  <link rel="stylesheet" href="../css/enrollment.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+  <div class="container">
+    <a href="../index.html" class="nav-logo"><div class="logo-icon">⚡</div><div class="logo-text">TechCrest<span>Learning</span></div></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="../courses.html" class="active">Courses<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="dropdown-menu">
+          <li><a href="embedded.html"><span class="course-dot"></span>Embedded Systems</a></li>
+          <li><a href="iot.html"><span class="course-dot"></span>Internet of Things</a></li>
+          <li><a href="pcb.html"><span class="course-dot"></span>PCB Design</a></li>
+          <li><a href="dsa.html"><span class="course-dot"></span>DSA</a></li>
+          <li><a href="mernstack.html"><span class="course-dot"></span>MERN Stack</a></li>
+        </ul>
+      </li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions"><a href="../courses.html" class="nav-cta">All Courses</a></div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"><span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span></button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" role="dialog">
+  <ul class="mobile-nav-links">
+    <li><a href="../index.html">🏠 Home</a></li>
+    <li><a href="../about.html">🏢 About</a></li>
+    <li><a href="../courses.html" class="mobile-submenu-toggle active">📚 Courses<svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <ul class="mobile-submenu">
+        <li><a href="embedded.html">🔌 Embedded Systems</a></li>
+        <li><a href="iot.html">📡 Internet of Things</a></li>
+        <li><a href="pcb.html">🔧 PCB Design</a></li>
+        <li><a href="dsa.html">🧠 DSA</a></li>
+        <li><a href="mernstack.html">💻 MERN Stack</a></li>
+      </ul>
+    </li>
+    <li><a href="../contact.html">📞 Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta"><button class="btn btn-gradient btn-lg" style="width:100%" data-course="dsa">Enroll Now →</button></div>
+</div>
+
+<!-- COURSE HERO -->
+<section class="page-hero" style="text-align:left;padding-bottom:var(--space-3xl);">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-bottom:var(--space-lg);">
+      <span class="badge badge-blue">Programming</span>
+      <span class="badge badge-teal">Beginner → Advanced</span>
+      <span class="badge badge-orange">🏆 Interview Focused</span>
+    </div>
+    <h1 style="text-align:left;font-size:clamp(2rem,5vw,3.4rem);">Data Structures & <span class="text-gradient">Algorithms</span></h1>
+    <p style="text-align:left;max-width:620px;margin:var(--space-md) 0 var(--space-lg);font-size:1.05rem;">Build unshakeable CS fundamentals, solve complex problems confidently, and crack coding interviews at top tech companies — in 14 focused weeks.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-bottom:var(--space-xl);">
+      <span class="skill-tag course-tag">Arrays & Strings</span>
+      <span class="skill-tag course-tag">Linked Lists</span>
+      <span class="skill-tag course-tag">Trees & Graphs</span>
+      <span class="skill-tag course-tag">Dynamic Programming</span>
+      <span class="skill-tag course-tag">Sorting & Searching</span>
+      <span class="skill-tag course-tag">Recursion</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-xl);">
+      <div class="trust-item"><span class="trust-icon">⏱</span><div class="trust-text"><strong>14 Weeks</strong>Duration</div></div>
+      <div class="trust-item"><span class="trust-icon">👥</span><div class="trust-text"><strong>200+ Students</strong>Enrolled</div></div>
+      <div class="trust-item"><span class="trust-icon">⭐</span><div class="trust-text"><strong>4.9 / 5</strong>Rating</div></div>
+      <div class="trust-item"><span class="trust-icon">🏢</span><div class="trust-text"><strong>Top Company</strong>Placements</div></div>
+    </div>
+    <div class="breadcrumb" style="justify-content:flex-start;margin-top:var(--space-xl);">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <a href="../courses.html">Courses</a><span class="sep">›</span>
+      <span class="current">DSA</span>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE BODY -->
+<section class="section" style="padding-top:var(--space-2xl);">
+  <div class="container">
+    <div class="course-page-layout">
+      <div class="course-main-content">
+        <div class="tabs-container">
+          <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="overview">📋 Overview</button>
+            <button class="tab-btn" data-tab="syllabus">📚 Syllabus</button>
+            <button class="tab-btn" data-tab="instructor">👨‍🏫 Instructor</button>
+            <button class="tab-btn" data-tab="reviews">⭐ Reviews</button>
+          </div>
+
+          <!-- OVERVIEW -->
+          <div class="tab-panel active" data-panel="overview">
+            <div class="content-section">
+              <h2 class="content-section-title">📋 Course Overview</h2>
+              <div class="course-overview-grid">
+                <div class="overview-item"><span class="ov-icon">⏱</span><div><span class="ov-label">Duration</span><span class="ov-value">14 Weeks</span></div></div>
+                <div class="overview-item"><span class="ov-icon">💻</span><div><span class="ov-label">Language</span><span class="ov-value">Python / Java / C++</span></div></div>
+                <div class="overview-item"><span class="ov-icon">🖥️</span><div><span class="ov-label">Mode</span><span class="ov-value">Online & Offline</span></div></div>
+                <div class="overview-item"><span class="ov-icon">📅</span><div><span class="ov-label">Schedule</span><span class="ov-value">Weekday & Weekend</span></div></div>
+                <div class="overview-item"><span class="ov-icon">📊</span><div><span class="ov-label">Level</span><span class="ov-value">Beginner to Advanced</span></div></div>
+                <div class="overview-item"><span class="ov-icon">🏆</span><div><span class="ov-label">Goal</span><span class="ov-value">Interview Cracking</span></div></div>
+              </div>
+            </div>
+            <div class="content-section">
+              <h2 class="content-section-title">🎯 What You Will Learn</h2>
+              <div class="learn-grid">
+                <div class="learn-item"><span class="learn-check">✓</span>Arrays, strings and matrix problems</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Linked lists: singly, doubly and circular</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Stacks, queues and priority queues</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Binary trees and BSTs</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Graphs: BFS, DFS, Dijkstra, Topological Sort</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Recursion and backtracking patterns</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Dynamic programming (bottom-up + top-down)</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Sorting algorithms and their trade-offs</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Binary search and two-pointer techniques</div>
+                <div class="learn-item"><span class="learn-check">✓</span>100+ LeetCode-style problems solved together</div>
+              </div>
+            </div>
+            <div class="content-section">
+              <h2 class="content-section-title">📌 Requirements</h2>
+              <div class="requirements-list">
+                <div class="req-item"><span class="req-dot"></span>Basic knowledge of any programming language (Python / Java / C++)</div>
+                <div class="req-item"><span class="req-dot"></span>Understanding of loops, functions and basic I/O</div>
+                <div class="req-item"><span class="req-dot"></span>A laptop with internet access</div>
+                <div class="req-item"><span class="req-dot"></span>Dedication to practice — DSA requires consistent effort</div>
+              </div>
+            </div>
+            <div class="info-box">
+              <span class="info-icon">💡</span>
+              <p><strong>Interview-first approach.</strong> Every topic is taught with real interview questions from Google, Amazon, Microsoft and other top companies. You will solve 100+ problems over the 14 weeks.</p>
+            </div>
+          </div>
+
+          <!-- SYLLABUS -->
+          <div class="tab-panel" data-panel="syllabus">
+            <div class="content-section">
+              <h2 class="content-section-title">📚 Course Syllabus</h2>
+              <div class="syllabus-list">
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W1</div><div class="syllabus-header-text"><div class="week-title">Foundations: Complexity & Arrays</div><div class="week-meta">6 topics · 4 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Time and space complexity: Big-O notation</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Array operations: insert, delete, search</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Two-pointer technique</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Sliding window pattern</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Prefix sums and difference arrays</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>10 LeetCode problems: Easy + Medium arrays</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W2</div><div class="syllabus-header-text"><div class="week-title">Strings & Hashing</div><div class="week-meta">5 topics · 4 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>String manipulation patterns</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>HashMap and HashSet patterns</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Anagram, palindrome and substring problems</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Frequency counting technique</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>10 LeetCode problems: Strings + Hash</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W3</div><div class="syllabus-header-text"><div class="week-title">Linked Lists</div><div class="week-meta">6 topics · 5 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Singly and doubly linked list implementation</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Reversal, merge and cycle detection</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Fast and slow pointer (Floyd's algorithm)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Merge sort on linked lists</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>LRU Cache implementation</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>10 LeetCode problems: Linked Lists</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W4</div><div class="syllabus-header-text"><div class="week-title">Stacks, Queues & Heaps</div><div class="week-meta">5 topics · 4 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Stack: monotonic stack patterns</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Queue and deque patterns</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Min-heap and max-heap operations</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Top-K elements pattern using heap</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>10 LeetCode problems: Stacks + Heaps</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W5–6</div><div class="syllabus-header-text"><div class="week-title">Trees: Binary Trees & BST</div><div class="week-meta">8 topics · 8 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Tree traversals: inorder, preorder, postorder, level-order</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Height, diameter and path sum problems</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Binary Search Tree: insert, delete, search</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Lowest Common Ancestor (LCA)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>AVL trees and rotations (concept)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Trie data structure and word problems</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Segment trees (intro)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>15 LeetCode problems: Trees</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W7–8</div><div class="syllabus-header-text"><div class="week-title">Graphs: BFS, DFS & Shortest Paths</div><div class="week-meta">8 topics · 8 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Graph representations: adjacency list and matrix</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>BFS: level-order traversal and shortest path</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>DFS: connected components and cycle detection</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Topological sort (Kahn's + DFS)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Dijkstra's algorithm for weighted graphs</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Union-Find (Disjoint Set Union)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Minimum Spanning Tree: Prim's and Kruskal's</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>15 LeetCode problems: Graphs</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W9–10</div><div class="syllabus-header-text"><div class="week-title">Recursion, Backtracking & Divide & Conquer</div><div class="week-meta">6 topics · 6 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Recursion fundamentals and call stack</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Subsets, permutations and combinations</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>N-Queens and Sudoku Solver</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Merge sort and quicksort deep dive</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Binary search on answer</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>10 LeetCode problems: Recursion + Backtracking</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W11–12</div><div class="syllabus-header-text"><div class="week-title">Dynamic Programming</div><div class="week-meta">8 topics · 8 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>DP fundamentals: memoization vs tabulation</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>1D DP: Fibonacci, climbing stairs, house robber</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>2D DP: grid problems, unique paths</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Knapsack problem variants</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Longest Common Subsequence / Substring</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Coin change and unbounded knapsack</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>DP on strings and trees</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>15 LeetCode problems: DP</div>
+                  </div></div></div>
+                </div>
+
+                <div class="syllabus-item">
+                  <div class="syllabus-item-header"><div class="week-number">W13–14</div><div class="syllabus-header-text"><div class="week-title">Mock Interviews & Interview Prep</div><div class="week-meta">5 topics · 8 hrs</div></div><span class="accordion-icon">+</span></div>
+                  <div class="syllabus-item-content"><div class="syllabus-content-inner"><div class="syllabus-topics">
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Company-wise question pattern analysis</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Live mock interviews (timed, whiteboard-style)</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Problem-solving approach and communication</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Resume and LinkedIn profile optimization</div>
+                    <div class="syllabus-topic"><span class="topic-bullet"></span>Referrals to hiring partner companies</div>
+                  </div></div></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- INSTRUCTOR -->
+          <div class="tab-panel" data-panel="instructor">
+            <div class="content-section">
+              <h2 class="content-section-title">👨‍🏫 Your Instructor</h2>
+              <div class="instructor-card">
+                <div class="instructor-avatar-lg">👨‍🏫</div>
+                <div class="instructor-details">
+                  <h3>Anil Sharma</h3>
+                  <div class="instructor-title">Ex-Google SWE · DSA & Interview Coach</div>
+                  <p class="instructor-bio">Anil spent 5 years as a software engineer at Google, Bengaluru, working on search infrastructure. He is now a full-time educator and interview coach, having helped 100+ students crack interviews at Google, Amazon, Microsoft, Flipkart and other top companies. His teaching philosophy is pattern recognition — he does not make you memorize problems but trains you to identify and apply the right approach.</p>
+                  <div class="instructor-stats">
+                    <div class="inst-stat"><span class="val">200+</span><span class="lbl">Students</span></div>
+                    <div class="inst-stat"><span class="val">5 yrs</span><span class="lbl">At Google</span></div>
+                    <div class="inst-stat"><span class="val">4.9★</span><span class="lbl">Rating</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- REVIEWS -->
+          <div class="tab-panel" data-panel="reviews">
+            <div class="content-section">
+              <h2 class="content-section-title">⭐ Student Reviews</h2>
+              <div class="testimonials-grid" style="grid-template-columns:repeat(2,1fr);">
+                <div class="testimonial-card">
+                  <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                  <p class="testimonial-quote">Anil's pattern-based teaching is revolutionary. I stopped memorising solutions and started actually understanding problems. Cracked Amazon SDE-1 after this course!</p>
+                  <div class="testimonial-author"><div class="author-avatar">SM</div><div class="author-info"><div class="author-name">Siddharth M</div><div class="author-course">Batch 2024</div></div></div>
+                </div>
+                <div class="testimonial-card">
+                  <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                  <p class="testimonial-quote">The DP module alone is worth the entire fee. 14 weeks felt short because I was so absorbed. The mock interviews at the end were tougher than the actual interviews!</p>
+                  <div class="testimonial-author"><div class="author-avatar">KP</div><div class="author-info"><div class="author-name">Keerthana P</div><div class="author-course">Batch 2023</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="enroll-section">
+          <div class="enroll-price"><span class="price-tag">₹9,999</span><span class="price-note">One-time payment · Lifetime access</span></div>
+          <button class="enroll-btn-main" data-course="dsa">🚀 Enroll Now</button>
+          <a href="https://wa.me/919897654321" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0.75rem;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);border-radius:var(--radius-md);color:#25D366;font-size:0.88rem;font-weight:600;margin-bottom:var(--space-md);transition:var(--transition-fast);text-decoration:none;">💬 Ask on WhatsApp First</a>
+          <div class="enroll-includes">
+            <h4>This Course Includes</h4>
+            <div class="include-item"><span class="include-icon">⏱</span>14 weeks structured content</div>
+            <div class="include-item"><span class="include-icon">🧩</span>100+ LeetCode-style problems</div>
+            <div class="include-item"><span class="include-icon">🎤</span>Live mock interviews included</div>
+            <div class="include-item"><span class="include-icon">🎥</span>Recorded sessions for revision</div>
+            <div class="include-item"><span class="include-icon">📜</span>Completion certificate</div>
+            <div class="include-item"><span class="include-icon">🏢</span>Company referrals</div>
+            <div class="include-item"><span class="include-icon">🤝</span>Placement support</div>
+            <div class="include-item"><span class="include-icon">🔄</span>Lifetime access</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section" style="background:var(--bg-card);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header reveal"><span class="eyebrow">✦ Explore More</span><h2>You Might Also <span class="text-gradient">Like</span></h2><div class="divider"></div></div>
+    <div class="courses-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="course-card reveal reveal-delay-1" data-href="mernstack.html" style="cursor:pointer;"><div class="course-card-banner banner-mern"><span class="banner-icon">💻</span></div><div class="course-card-body"><h3 class="course-card-title">MERN Stack</h3><p class="course-card-desc">Build full-stack web apps with React and Node.js.</p><div class="course-card-footer"><div class="course-price"><span class="price-label">Course Fee</span><span class="price-value">₹11,999</span></div><button class="btn-enroll" data-course="mern">Enroll Now <span class="arrow">→</span></button></div></div></div>
+      <div class="course-card reveal reveal-delay-2" data-href="embedded.html" style="cursor:pointer;"><div class="course-card-banner banner-embedded"><span class="banner-icon">🔌</span></div><div class="course-card-body"><h3 class="course-card-title">Embedded Systems</h3><p class="course-card-desc">Master microcontrollers and firmware development.</p><div class="course-card-footer"><div class="course-price"><span class="price-label">Course Fee</span><span class="price-value">₹8,999</span></div><button class="btn-enroll" data-course="embedded">Enroll Now <span class="arrow">→</span></button></div></div></div>
+      <div class="course-card reveal reveal-delay-3" data-href="iot.html" style="cursor:pointer;"><div class="course-card-banner banner-iot"><span class="banner-icon">📡</span></div><div class="course-card-body"><h3 class="course-card-title">IoT</h3><p class="course-card-desc">Build smart connected IoT systems with cloud.</p><div class="course-card-footer"><div class="course-price"><span class="price-label">Course Fee</span><span class="price-value">₹7,999</span></div><button class="btn-enroll" data-course="iot">Enroll Now <span class="arrow">→</span></button></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="logo">⚡ TechCrest Learning</span><p>Premium tech education for the next generation of engineers.</p></div><div class="footer-col"><h4>Courses</h4><ul><li><a href="embedded.html">Embedded Systems</a></li><li><a href="iot.html">IoT</a></li><li><a href="pcb.html">PCB Design</a></li><li><a href="dsa.html">DSA</a></li><li><a href="mernstack.html">MERN Stack</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="https://wa.me/919897654321">📱 WhatsApp</a></li></ul></div></div><div class="footer-bottom"><p>© <span id="current-year"></span> TechCrest Learning.</p></div></div></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="enrollModal" role="dialog" aria-modal="true" aria-labelledby="modalCourseName"><div class="modal-backdrop"></div><div class="modal-box"><div class="modal-header"><div class="modal-header-top"><div class="modal-course-icon" id="modalCourseIcon">🎓</div><div class="modal-header-text"><span class="modal-eyebrow">Enroll Now</span><h3 id="modalCourseName">Course Name</h3></div><button class="modal-close" id="modalClose" aria-label="Close modal">✕</button></div><p>Fill in your details. We will connect on WhatsApp instantly.</p></div><div style="padding:0 var(--space-xl);"><div class="modal-steps"><div class="modal-step-dot active"></div><div class="modal-step-dot"></div><div class="modal-step-dot"></div></div></div><div class="modal-body"><div id="formView" style="display:flex;flex-direction:column;gap:var(--space-lg);"><form class="enrollment-form" id="enrollmentForm" novalidate><div class="form-group"><label><span class="lbl-icon">📚</span> Course</label><div class="course-display-field" id="courseDisplayField">— auto filled —<span class="lock-icon">🔒</span></div></div><div class="form-group"><label for="enrollName"><span class="lbl-icon">👤</span> Full Name</label><input type="text" id="enrollName" name="name" placeholder="e.g. Ravi Kumar" autocomplete="name" /><div class="field-error" id="nameError"></div></div><div class="form-group"><label for="enrollEmail"><span class="lbl-icon">📧</span> Email Address</label><input type="email" id="enrollEmail" name="email" placeholder="e.g. ravi@email.com" autocomplete="email" /><div class="field-error" id="emailError"></div></div><div class="form-group"><label for="enrollPhone"><span class="lbl-icon">📱</span> Phone Number</label><input type="tel" id="enrollPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" maxlength="10" /><div class="field-error" id="phoneError"></div></div><div class="privacy-note"><span class="privacy-icon">🔒</span><p>Your details are <strong>100% private</strong>.</p></div><button type="submit" class="btn-submit-enroll" id="submitEnrollBtn"><div class="spinner"></div><span class="btn-text"><span class="whatsapp-icon">💬</span> Continue to WhatsApp</span></button></form></div><div class="modal-success" id="successView"><div class="success-checkmark">✅</div><div class="success-title">You're All Set!</div><p class="success-message">Hi <strong id="successStudentName">there</strong>! Enrollment for <strong id="successCourseName"></strong> ready.</p><div class="redirect-countdown">Opening WhatsApp in <span class="countdown-number" id="countdownNumber">3</span> seconds</div><a href="#" class="btn-whatsapp-manual" id="manualWhatsAppBtn" target="_blank" rel="noopener">💬 Open WhatsApp Now</a></div></div></div></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/enrollment.js"></script>
+<script src="../js/courses.js"></script>
+<script>document.querySelectorAll('.course-card[data-href]').forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('.btn-enroll'))return;window.location.href=card.dataset.href;});});</script>
+</body>
+</html>
